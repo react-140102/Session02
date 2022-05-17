@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Task } from "./Task";
-import { TaskItem } from "./TaskItem";
+import TaskItem from "./TaskItem";
 
 //Before Hooks
 //Class

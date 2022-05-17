@@ -6,7 +6,7 @@ interface TaskItemProps {
   toggleTask: any;
 }
 
-export function TaskItem({ task, toggleTask }: TaskItemProps) {
+const TaskItemFunc = function ({ task, toggleTask }: TaskItemProps) {
   console.log(task);
 
   return (
@@ -19,4 +19,6 @@ export function TaskItem({ task, toggleTask }: TaskItemProps) {
       <a>{task.title}</a>
     </li>
   );
-}
+};
+
+export default memo(TaskItemFunc);
