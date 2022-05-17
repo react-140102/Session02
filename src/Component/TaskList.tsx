@@ -16,6 +16,7 @@ interface Task {
 //3. exception: custome hooks
 
 export default function () {
+  const [title, setTitle] = useState("");
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, title: "React hooks", done: true },
     { id: 2, title: "Ajax", done: false },
@@ -27,10 +28,17 @@ export default function () {
     // setTasks(tasks.slice());
   };
 
-  let textVal = "salam";
+  const addTask = () => {
+    console.log(title);
+    setTitle("");
+  };
 
   return (
     <>
+      New Task:
+      <input onChange={(e) => setTitle(e.target.value)} value={title} />
+      {/* <input onChange={(e) => (title = e.target.value)} value={title} /> */}
+      <button onClick={addTask}>Add</button>
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>
