@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import { memo } from "react";
 import { Task } from "./Task";
 
 interface TaskItemProps {
@@ -6,7 +6,7 @@ interface TaskItemProps {
   toggleTask: any;
 }
 
-export const function TaskItem({ task, toggleTask }: TaskItemProps) {
+export function TaskItem({ task, toggleTask }: TaskItemProps) {
   console.log(task);
 
   return (
