@@ -16,7 +16,6 @@ interface Task {
 //3. exception: custome hooks
 
 export default function () {
-  console.log("TaskList " + Math.random());
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, title: "React hooks", done: true },
     { id: 2, title: "Ajax", done: false },
@@ -28,12 +27,18 @@ export default function () {
     // setTasks(tasks.slice());
   };
 
+  let textVal = "salam";
+
   return (
     <>
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>
-            <input type="checkbox" checked={task.done} />
+            <input
+              onChange={(e) => toggleTask(task)}
+              type="checkbox"
+              checked={task.done}
+            />
             <a>{task.title}</a>
           </li>
         ))}
