@@ -7,8 +7,6 @@ interface TaskItemProps {
 }
 
 const TaskItemFunc = function ({ task, toggleTask }: TaskItemProps) {
-  console.log(task);
-
   return (
     <li>
       <input

@@ -22,7 +22,7 @@ export default function () {
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, title: "React hooks", done: true },
     { id: 2, title: "Ajax", done: false },
-  ]);
+  ]); // <Type> generics
 
   const toggleTask = useCallback(
     (task: Task) => {
@@ -54,7 +54,7 @@ export default function () {
   };
 
   return (
-    <div>
+    <>
       New Task:
       <input onChange={(e) => setTitle(e.target.value)} value={title} />
       <button onClick={addTask}>Add</button>
