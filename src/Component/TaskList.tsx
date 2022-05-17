@@ -24,11 +24,14 @@ export default function () {
     { id: 2, title: "Ajax", done: false },
   ]);
 
-  const toggleTask = useCallback((task: Task) => {
-    task.done = !task.done;
-    setTasks([...tasks]);
-    // setTasks(tasks.slice());
-  }, []);
+  const toggleTask = useCallback(
+    (task: Task) => {
+      task.done = !task.done;
+      setTasks([...tasks]);
+      // setTasks(tasks.slice());
+    },
+    [tasks]
+  );
 
   const addTask = () => {
     let newtasks = [...tasks];
