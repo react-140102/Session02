@@ -1,10 +1,6 @@
 import { useState } from "react";
-
-interface Task {
-  id: number;
-  title: string;
-  done: boolean;
-}
+import { Task } from "./Task";
+import { TaskItem } from "./TaskItem";
 
 //Before Hooks
 //Class
@@ -55,14 +51,11 @@ export default function () {
       <button onClick={addTask}>Add</button>
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>
-            <input
-              onChange={(e) => toggleTask(task)}
-              type="checkbox"
-              checked={task.done}
-            />
-            <a>{task.title}</a>
-          </li>
+          <TaskItem
+            key={task.id}
+            task={task}
+            toggleTask={toggleTask}
+          ></TaskItem>
         ))}
       </ul>
     </>
