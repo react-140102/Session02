@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function () {
+  const [posts, setPosts] = useState([]);
+
   /***
    * Ajax:
    *  fetch <- browser dare, library
@@ -8,6 +10,14 @@ export default function () {
    *    axios
    *    got, ...
    */
+
+  useEffect(() => {
+    console.log("Salam");
+    return () => {
+      //Cleanup
+      console.log("Goodbye");
+    };
+  }, []);
 
   useEffect(() => {
     //Promise
@@ -28,20 +38,15 @@ export default function () {
     // (async () => {})()
     (async () => {
       const resp = await fetch(
-        "https://jsonplaceholder.typicode.com/posts?_limit=10&_page=2"
+        "https://jsonplaceholder.typicode.com/posts?_limit=10&_page=1"
       );
-      const json = await resp.json();
+      setPosts(await resp.json());
     })();
-
-    return () => {
-      //Cleanup
-      console.log("Goodbye");
-    };
-  });
+  }, []);
 
   return (
     <>
-      <div>Posts</div>
+      <div>Posts {posts.length}</div>
     </>
   );
 }
