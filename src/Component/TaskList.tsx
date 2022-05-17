@@ -54,7 +54,7 @@ export default function () {
   };
 
   return (
-    <>
+    <div>
       New Task:
       <input onChange={(e) => setTitle(e.target.value)} value={title} />
       <button onClick={addTask}>Add</button>
