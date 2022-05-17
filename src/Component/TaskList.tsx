@@ -29,15 +29,29 @@ export default function () {
   };
 
   const addTask = () => {
-    console.log(title);
+    let newtasks = [...tasks];
+    newtasks.push({
+      id: Math.random(),
+      title,
+      done: false,
+    });
+    setTasks(newtasks);
     setTitle("");
+
+    //Batch
+
+    // tasks.push({
+    //   id: Math.random(),
+    //   title,
+    //   done: false,
+    // });
+    // setTasks(tasks);
   };
 
   return (
     <>
       New Task:
       <input onChange={(e) => setTitle(e.target.value)} value={title} />
-      {/* <input onChange={(e) => (title = e.target.value)} value={title} /> */}
       <button onClick={addTask}>Add</button>
       <ul>
         {tasks.map((task) => (
