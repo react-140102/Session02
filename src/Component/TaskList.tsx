@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Task } from "./Task";
 import TaskItem from "./TaskItem";
 
@@ -11,6 +11,12 @@ import TaskItem from "./TaskItem";
 //2. level asli component
 //3. exception: custome hooks
 
+const a = () => console.log("salam");
+const b = () => console.log("salam");
+if (a === b) {
+  //
+}
+
 export default function () {
   const [title, setTitle] = useState("");
   const [tasks, setTasks] = useState<Task[]>([
@@ -18,11 +24,11 @@ export default function () {
     { id: 2, title: "Ajax", done: false },
   ]);
 
-  const toggleTask = (task: Task) => {
+  const toggleTask = useCallback((task: Task) => {
     task.done = !task.done;
     setTasks([...tasks]);
     // setTasks(tasks.slice());
-  };
+  }, []);
 
   const addTask = () => {
     let newtasks = [...tasks];
