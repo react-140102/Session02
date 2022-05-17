@@ -11,13 +11,15 @@ interface Task {
 //Dumb Component
 
 //React Hook
-//
+//1. react componetns
+//2. level asli component
+//3. exception: custome hooks
 
 export default function () {
   console.log("TaskList " + Math.random());
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, title: "React hooks", done: true },
-    { id: 1, title: "Ajax", done: false },
+    { id: 2, title: "Ajax", done: false },
   ]);
 
   const toggleTask = (task: Task) => {
@@ -30,9 +32,9 @@ export default function () {
     <>
       <ul>
         {tasks.map((task) => (
-          <li>
-            <input type="checkbox" disabled checked={task.done} />
-            <a onClick={() => toggleTask(task)}>{task.title}</a>
+          <li key={task.id}>
+            <input type="checkbox" checked={task.done} />
+            <a>{task.title}</a>
           </li>
         ))}
       </ul>
